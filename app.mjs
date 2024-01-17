@@ -2,8 +2,7 @@ import express from 'express';
 const app = express();
 const port = 3000;
 import OpenAI from 'openai';
-import http from 'http';
-import {HttpsProxyAgent} from 'https-proxy-agent';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // 手动设置 CORS 头部
 app.use((req, res, next) => {
@@ -19,17 +18,8 @@ app.use((req, res, next) => {
   }
 });
 
-// 创建代理配置
-const proxyConfig = {
-  host: '127.0.0.1',
-  port: 7890,
-};
-
-// 创建代理
-const proxyAgent = new http.Agent(proxyConfig);
-
 const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
     httpAgent: new HttpsProxyAgent("http://127.0.0.1:7890"),
 });
 
